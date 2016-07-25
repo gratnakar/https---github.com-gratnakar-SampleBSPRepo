@@ -1,0 +1,19 @@
+jboss_asg_alarms: 
+-  jboss_high_cpu: 30
+   jboss_low_cpu: 30
+jboss_asg_grace_period: bb
+jboss_default_log_level: gg
+jboss_elb_health_check_target: cc
+jboss_elb_ssl_cert_name: dd
+jboss_instance_size: m4.large
+jboss_max_instances: 6
+jboss_max_log_index: ff
+jboss_max_log_size: ee
+jboss_min_instances: 5
+jboss_multi_az: true
+mysql_backup_retention: jj
+mysql_db_name: kk
+mysql_instance_size: t2.small
+mysql_multi_az: true
+mysql_size_in_gb: ii
+mysql_user: hh
