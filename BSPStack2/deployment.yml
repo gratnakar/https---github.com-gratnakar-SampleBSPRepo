@@ -1,0 +1,36 @@
+mem_cache_instance_size: t2.nano
+mysql_backup_retention: Yes
+mysql_db_name: mysqlDbName
+mysql_instance_size: t2.nano
+mysql_multi_az: true
+mysql_size_in_gb: 100GB
+mysql_user: mysqluser
+api_java_options: -Xms
+api_port: 8080
+api_stop_key: stop key
+api_stop_port: 8081
+connectors_java_options: -Xms
+connectors_port: 9001
+connectors_stop_key: stop key
+connectors_stop_port: 9002
+lsolr_src_dir: /home/src/dir
+lucidworks_group: group
+lucidworks_home_dir: /home
+lucidworks_indexes_dir: /home/index
+lucidworks_user: user
+solr_java_options: -Xms
+solr_port: 99999
+solr_stop_key: stop key
+solr_stop_port: 99999
+spark_job_server_port: 12002
+spark_master_java_options: -Xms
+spark_master_port: 12001
+spark_master_ui_port: 9999
+spark_worker_java_options: -Xms
+spark_worker_port: 12003
+spark_worker_ui_port: 12004
+ui_java_options: -Xms
+ui_port: 11001
+ui_stop_key: 999
+ui_stop_port: 11002
+zookeeper_home_dir: /home/zookeeper
