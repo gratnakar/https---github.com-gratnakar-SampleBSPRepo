@@ -1,0 +1,58 @@
+drupal_asg_alarms: 
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: GreaterThanThreshold
+   name: ' '
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 10
+   policy: DrupalScaleUpPolicy
+-  metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   name: ' '
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 10
+   policy: DrupalScaleDownPolicy
+drupal_asg_grace_period: 10
+drupal_content_files: 
+- !java.util.LinkedHashMap
+   path: sites/all/themestest2 sql file
+   url: https://s3.amazonaws.com/s3-helix-ama/themes.tar.gztest2 sql file
+- !java.util.LinkedHashMap
+   path: sites/all/modulestest2 sql file
+   url: https://s3.amazonaws.com/s3-helix-ama/modules.tar.gztest2 sql file
+- !java.util.LinkedHashMap
+   path: sites/all/deploytest2 sql file
+   url: https://s3.amazonaws.com/s3-helix-ama/deploy.tar.gztest2 sql file
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   name: ' '
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 10
+   policy: DrupalScaleDownPolicy
+-  path: ag-app/apptest2 sql file
+   url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gztest2 sql file
+drupal_databases: 
+- !java.util.LinkedHashMap
+   path: ag-app/apptest2 sql file
+   url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gztest2 sql file
+-  db_type: defaulttest1test2
+   sql_url: https://s3.amazonaws.com/s3-helix-amatest1test2
+   filename: test1test2
+   db_name: dbSolutionMatrixtest1test2
+   drupal_db_name: solution_matrix
+drupal_elb_health_check_target: 101
+drupal_elb_ssl_cert_name: ssl certname
+drupal_instance_size: t2.nano
+drupal_lb_resource_name: test2 sql file
+drupal_max_instances: 1
+drupal_multi_az: true
+drupal_site_urls: test2 sql file
+drupal_sql_files: test2 sql file
+mem_cache_instance_size: t2.nano
+mysql_backup_retention: Yes
+mysql_db_name: mysqlDbName
+mysql_instance_size: t2.nano
+mysql_multi_az: true
+mysql_size_in_gb: 100GB
+mysql_user: mysqluser
