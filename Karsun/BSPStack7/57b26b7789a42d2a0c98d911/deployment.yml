@@ -1,0 +1,72 @@
+apache_asg_alarms: 
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: GreaterThanThreshold
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 20
+   policy: ApacheScaleUpPolicy
+-  metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 10
+   policy: ApacheScaleDownPolicy
+apache_asg_grace_period: ff
+apache_elb_health_check_target: ff
+apache_elb_ssl_cert_name: ff
+apache_instance_size: t2.small
+apache_lb_resource_name: ff
+apache_max_instances: 2
+apache_min_instances: 2
+apache_vhosts: 
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 10
+   policy: ApacheScaleDownPolicy
+-  documentroot: '"/var/www/html"'
+   metric: CPUUtilization
+   servername: '"local.dev"'
+   comparison_operator: GreaterThanThreshold
+   name: ' '
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 50
+   shib_locationmatch: /TDR/internaluser*
+   policy: JBossScaleUpPolicy
+shib_X509Certificate: ff
+shib_atrrib: ff
+shib_entityid: ff
+shib_service_location: ff
+shib_spcert: ff
+shib_spkey: ff
+cust_urls: fff
+jboss_asg_alarms: 
+- !java.util.LinkedHashMap
+   documentroot: '"/var/www/html"'
+   metric: CPUUtilization
+   servername: '"local.dev"'
+   comparison_operator: GreaterThanThreshold
+   name: ' '
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 50
+   shib_locationmatch: /TDR/internaluser*
+   policy: JBossScaleUpPolicy
+-  metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   name: ' '
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 10
+   policy: JBossScaleDownPolicy
+jboss_asg_grace_period: ff
+jboss_default_log_level: ff
+jboss_elb_health_check_target: ff
+jboss_elb_ssl_cert_name: ff
+jboss_instance_size: t2.micro
+jboss_lb_resource_name: ff
+jboss_max_instances: 3
+jboss_max_log_index: ff
+jboss_max_log_size: ff
+jboss_min_instances: 3
+jboss_target_path: f
+mongo_instance_size: t2.medium
+mongod_port: ff
