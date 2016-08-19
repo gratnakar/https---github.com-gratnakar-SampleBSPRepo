@@ -3,71 +3,73 @@ apache_asg_alarms:
    metric: CPUUtilization
    comparison_operator: GreaterThanThreshold
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 30
+   threshold: 90
    policy: ApacheScaleUpPolicy
 -  metric: CPUUtilization
    comparison_operator: LessThanThreshold
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 40
+   threshold: 70
    policy: ApacheScaleDownPolicy
-apache_asg_grace_period: 34
-apache_elb_health_check_target: seven
-apache_elb_ssl_cert_name: Cert23
-apache_instance_size: t2.micro
-apache_lb_resource_name: LB3443
-apache_max_instances: 2
-apache_min_instances: 4
+apache_asg_grace_period: 1200
+apache_elb_health_check_target: 80
+apache_elb_ssl_cert_name: Apache-elb-cert
+apache_instance_size: m3.medium
+apache_lb_resource_name: ApacheNS
+apache_max_instances: 4
+apache_min_instances: 1
 apache_multi_az: true
 apache_vhosts: 
 - !java.util.LinkedHashMap
    metric: CPUUtilization
    comparison_operator: LessThanThreshold
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 40
+   threshold: 70
    policy: ApacheScaleDownPolicy
 -  documentroot: '"/var/www/html"'
    metric: CPUUtilization
    servername: '"local.dev"'
    comparison_operator: GreaterThanThreshold
-   name: helloworld
+   name: JBossHighCPU
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 50
+   threshold: 90
    shib_locationmatch: /TDR/internaluser*
    policy: JBossScaleUpPolicy
-shib_X509Certificate: helloCert
-shib_atrrib: helloworld
-shib_entityid: helloId
-shib_service_location: map
-shib_spcert: helloworld
-shib_spkey: helloworld
-cust_urls: helloworld
+shib_X509Certificate: MIIExjCCA66gAwIBAgIKQdzORQAAAAAAcTANBgkqhkiG9w0BAQUFADCBxzELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExHzAdBgNVBAoTFlNlY3VyZUF1dGggQ29ycG9yYXRpb24xOzA5BgNVBAsTMihjKSAyMDEyIFNlY3VyZUF1dGggQ29ycCAtIEZvciBhdXRob3JpemVkIHVzZSBvbmx5MR0wGwYDVQQLExRDZXJ0aWZpY2F0ZSBTZXJ2aWNlczEmMCQGA1UEAxMdU2VjdXJlQXV0aCBJbnRlcm1lZGlhdGUgQ0EgMUEwHhcNMTIwMzIyMDA1MzMwWhcNMjIwMzIyMDA1MzMwWjCBhDELMAkGA1UEBhMCVVMxDjAMBgNVBAgTBVRleGFzMRMwEQYDVQQHEwpGb3J0IFdvcnRoMSgwJgYDVQQKEx9HZW5lcmFsIFNlcnZpY2VzIEFkbWluaXN0cmF0aW9uMQswCQYDVQQLEwJJVDEZMBcGA1UEAxMQRTA3UjdTLVNFQ0FVVEgwMzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAvftM/yMDqsNpGWE+/eY6NGFQC/zw5x9jV5kFuCF0E/qGC0Iq4hJnyD+0xoGw8re+z+t8pRGdcpvJ97f41gGfzZju8QM0eLx8ulc7QNTQBmuu//ReJbVhhlc3mNUzrdopxozGu0v7TpbbJNK8o0GIeii5qUKbzIp3o9DSf9jPAL8CAwEAAaOCAXcwggFzMA4GA1UdDwEB/wQEAwIE8DAgBgNVHSUBAf8EFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHQYDVR0OBBYEFJC8x6is6kFuRabd25bvYRRTgrreMB8GA1UdIwQYMBaAFMYEnZjwynY3zNFl1fyz+3UsuRYNMGMGA1UdHwRcMFowWKBWoFSGUmh0dHA6Ly94NTA5Lm11bHRpZmFjdG9ydHJ1c3QzLmNvbS9DZXJ0SW5mby9TZWN1cmVBdXRoJTIwSW50ZXJtZWRpYXRlJTIwQ0ElMjAxQS5jcmwwgZkGCCsGAQUFBwEBBIGMMIGJMIGGBggrBgEFBQcwAoZ6aHR0cDovL3g1MDkubXVsdGlmYWN0b3J0cnVzdDMuY29tL0NlcnRJbmZvL1NBSW50Q0EtMUEuYmFubmVyLm11bHRpZmFjdG9ydHJ1c3QzLmNvbV9TZWN1cmVBdXRoJTIwSW50ZXJtZWRpYXRlJTIwQ0ElMjAxQS5jcnQwDQYJKoZIhvcNAQEFBQADggEBAK473inhf1JeqhRiSGtXYJu+SyGwxmDpm1xd689Zmcw1jCEOl8ZDQltuGtzvOaZOKOGdmRTlZi8IHbN/lgAnAuJeyQ97FyfqwJcOsu87A8wi2OeY8/sDSX358B0v1uj7CC+LtG8K+s98PyFj89XOqF8OVhSiPZ+HZRNz0bw7c6tleDc+YUIBsbuXxCBWhCM4twzk0qRkgEPEj9vSSuE0Y6JojJJGaHayErz+N7SSRbMmGEq8Qt3K3VFKO6cPBok5ICieZ3wDCM6wfpxlhxt+kAU4FyYLZf2MWBaqmJUPCaFJopr3Y/zRnIJBh9v/z50Tk+YNvEq413r9e/mU91NPrTM=
+shib_atrrib: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/attribute-map.xml
+shib_entityid: https://gsar-dev.fas.gsa.gov/shibboleth
+shib_service_location: https://secureauth.gsa.gov/SecureAuth24/
+shib_spcert: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/sp-key.pem
+shib_spkey: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/sp-cert.pem
+use_shibboleth: true
+cust_urls: '["https://s3.amazonaws.com/s3-helix-ama/Environment.war"]'
 jboss_asg_alarms: 
 - !java.util.LinkedHashMap
    documentroot: '"/var/www/html"'
    metric: CPUUtilization
    servername: '"local.dev"'
    comparison_operator: GreaterThanThreshold
-   name: helloworld
+   name: JBossHighCPU
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 50
+   threshold: 90
    shib_locationmatch: /TDR/internaluser*
    policy: JBossScaleUpPolicy
 -  metric: CPUUtilization
    comparison_operator: LessThanThreshold
-   name: helloworld
+   name: JBossLowCPU
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 40
+   threshold: 70
    policy: JBossScaleDownPolicy
-jboss_asg_grace_period: helloworld
-jboss_default_log_level: helloworld
-jboss_elb_health_check_target: helloworld
-jboss_elb_ssl_cert_name: helloworld
-jboss_instance_size: t2.small
-jboss_lb_resource_name: helloworld
-jboss_max_instances: 3
-jboss_max_log_index: helloworld
-jboss_max_log_size: helloworld
-jboss_min_instances: 3
-jboss_target_path: helloworld
-mongo_instance_size: t2.medium
-mongod_port: helloworld
+jboss_asg_grace_period: 1200
+jboss_default_log_level: INFO
+jboss_elb_health_check_target: HTTPS:8443/
+jboss_elb_ssl_cert_name: JBoss-elb-cert
+jboss_instance_size: m3.medium
+jboss_lb_resource_name: JbossNS
+jboss_max_instances: 4
+jboss_max_log_index: 5
+jboss_max_log_size: 1GB
+jboss_min_instances: 1
+jboss_multi_az: true
+jboss_target_path: /Environment/
+mongo_instance_size: m3.medium
+mongod_port: 27017
