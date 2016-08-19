@@ -1,0 +1,73 @@
+apache_asg_alarms: 
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: GreaterThanThreshold
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 30
+   policy: ApacheScaleUpPolicy
+-  metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 40
+   policy: ApacheScaleDownPolicy
+apache_asg_grace_period: 34
+apache_elb_health_check_target: seven
+apache_elb_ssl_cert_name: Cert23
+apache_instance_size: t2.micro
+apache_lb_resource_name: LB3443
+apache_max_instances: 2
+apache_min_instances: 4
+apache_multi_az: true
+apache_vhosts: 
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 40
+   policy: ApacheScaleDownPolicy
+-  documentroot: '"/var/www/html"'
+   metric: CPUUtilization
+   servername: '"local.dev"'
+   comparison_operator: GreaterThanThreshold
+   name: helloworld
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 50
+   shib_locationmatch: /TDR/internaluser*
+   policy: JBossScaleUpPolicy
+shib_X509Certificate: helloCert
+shib_atrrib: helloworld
+shib_entityid: helloId
+shib_service_location: map
+shib_spcert: helloworld
+shib_spkey: helloworld
+cust_urls: helloworld
+jboss_asg_alarms: 
+- !java.util.LinkedHashMap
+   documentroot: '"/var/www/html"'
+   metric: CPUUtilization
+   servername: '"local.dev"'
+   comparison_operator: GreaterThanThreshold
+   name: helloworld
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 50
+   shib_locationmatch: /TDR/internaluser*
+   policy: JBossScaleUpPolicy
+-  metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   name: helloworld
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 40
+   policy: JBossScaleDownPolicy
+jboss_asg_grace_period: helloworld
+jboss_default_log_level: helloworld
+jboss_elb_health_check_target: helloworld
+jboss_elb_ssl_cert_name: helloworld
+jboss_instance_size: t2.small
+jboss_lb_resource_name: helloworld
+jboss_max_instances: 3
+jboss_max_log_index: helloworld
+jboss_max_log_size: helloworld
+jboss_min_instances: 3
+jboss_target_path: helloworld
+mongo_instance_size: t2.medium
+mongod_port: helloworld
