@@ -1,0 +1,48 @@
+apache_asg_alarms: 
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: GreaterThanThreshold
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 20
+   policy: ApacheScaleUpPolicy
+-  metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 10
+   policy: ApacheScaleDownPolicy
+apache_asg_grace_period: 2
+apache_cert_dir: /etc/httpd
+apache_elb_health_check_target: t
+apache_elb_ssl_cert_name: t
+apache_instance_size: t2.micro
+apache_max_instances: 1
+apache_min_instances: 1
+jboss_asg_alarms: 
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: GreaterThanThreshold
+   name: ' '
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 10
+   policy: JBossScaleUpPolicy
+-  metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   name: ' '
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 10
+   policy: JBossScaleDownPolicy
+jboss_asg_grace_period: 1
+jboss_default_log_level: INFO
+jboss_elb_health_check_target: test
+jboss_elb_ssl_cert_name: test
+jboss_instance_size: c4.2xlarge
+jboss_max_instances: 7
+jboss_max_log_index: test
+jboss_max_log_size: test
+jboss_min_instances: 1
+mysql_backup_retention: test
+mysql_db_name: test
+mysql_instance_size: c4.2xlarge
+mysql_multi_az: false
+mysql_size_in_gb: 10
+mysql_user: test
