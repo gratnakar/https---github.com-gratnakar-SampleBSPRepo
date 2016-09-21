@@ -1,0 +1,56 @@
+drupal_asg_alarms: 
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: GreaterThanThreshold
+   name: ' '
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 40
+   policy: DrupalScaleUpPolicy
+-  metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   name: ' '
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 80
+   policy: DrupalScaleDownPolicy
+drupal_asg_grace_period: 12
+drupal_content_files: 
+- !java.util.LinkedHashMap
+   path: sites/all/themes
+   url: https://s3.amazonaws.com/s3-helix-ama/themes.tar.gz
+- !java.util.LinkedHashMap
+   path: sites/all/modules
+   url: https://s3.amazonaws.com/s3-helix-ama/modules.tar.gz
+- !java.util.LinkedHashMap
+   path: sites/all/deploy
+   url: https://s3.amazonaws.com/s3-helix-ama/deploy.tar.gz
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   name: ' '
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 80
+   policy: DrupalScaleDownPolicy
+-  path: ag-app/app
+   url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gz
+drupal_databases: 
+- !java.util.LinkedHashMap
+   path: ag-app/app
+   url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gz
+-  db_type: default
+   sql_url: https://s3.amazonaws.com/s3-helix-ama
+   filename: test.txt
+   db_name: dbSolutionMatrix
+   drupal_db_name: solution_matrix
+drupal_elb_health_check_target: 223
+drupal_elb_ssl_cert_name: drupal-elb-cert
+drupal_instance_size: m4.large
+drupal_lb_resource_name: DrupalNS
+drupal_max_instances: 6
+drupal_site_urls: ddd
+drupal_sql_files: aa.txt
+mem_cache_instance_size: t2.micro
+mysql_backup_retention: mm
+mysql_db_name: nn
+mysql_instance_size: c4.4xlarge
+mysql_size_in_gb: ll
+mysql_user: kk
