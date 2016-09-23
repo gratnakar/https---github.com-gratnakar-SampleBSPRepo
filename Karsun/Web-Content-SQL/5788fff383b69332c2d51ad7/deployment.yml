@@ -10,7 +10,7 @@ drupal_asg_alarms:
    comparison_operator: LessThanThreshold
    name: ' '
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 40
+   threshold: 90
    policy: DrupalScaleDownPolicy
 drupal_asg_grace_period: 12
 drupal_content_files: 
@@ -28,7 +28,7 @@ drupal_content_files:
    comparison_operator: LessThanThreshold
    name: ' '
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 40
+   threshold: 90
    policy: DrupalScaleDownPolicy
 -  path: ag-app/app
    url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gz
@@ -43,7 +43,7 @@ drupal_databases:
    drupal_db_name: solution_matrix
 drupal_elb_health_check_target: 223
 drupal_elb_ssl_cert_name: drupal-elb-cert
-drupal_instance_size: t2.medium
+drupal_instance_size: m4.2xlarge
 drupal_lb_resource_name: DrupalNS
 drupal_max_instances: 4
 drupal_site_urls: ddd
@@ -51,6 +51,6 @@ drupal_sql_files: aa.txt
 mem_cache_instance_size: t2.small
 mysql_backup_retention: mm
 mysql_db_name: nn
-mysql_instance_size: c4.4xlarge
+mysql_instance_size: c4.large
 mysql_size_in_gb: ll
 mysql_user: kk
