@@ -12,7 +12,7 @@ drupal_asg_alarms:
    description: Scale-down if CPU <70% for 10 minutes
    threshold: 10
    policy: DrupalScaleDownPolicy
-drupal_asg_grace_period: test
+drupal_asg_grace_period: 10
 drupal_content_files: 
 - !java.util.LinkedHashMap
    path: sites/all/themes
@@ -41,14 +41,14 @@ drupal_databases:
    filename: test
    db_name: dbSolutionMatrix
    drupal_db_name: solution_matrix
-drupal_elb_health_check_target: test
+drupal_elb_health_check_target: 20
 drupal_elb_ssl_cert_name: drupal-elb-cert
-drupal_instance_size: t2.nano
+drupal_instance_size: t2.micro
 drupal_lb_resource_name: DrupalNS
 drupal_max_instances: 1
 drupal_site_urls: test
 drupal_sql_files: test
-mysql_backup_retention: 20
+mysql_backup_retention: 30
 mysql_db_name: test
 mysql_instance_size: t2.nano
 mysql_size_in_gb: 20
