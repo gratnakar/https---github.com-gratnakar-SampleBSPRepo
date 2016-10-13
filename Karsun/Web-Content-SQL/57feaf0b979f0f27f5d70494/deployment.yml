@@ -50,6 +50,6 @@ drupal_site_urls: test
 drupal_sql_files: test
 mysql_backup_retention: 20
 mysql_db_name: test
-mysql_instance_size: t2.nano&sleep 5s&
+mysql_instance_size: t2.nano;sleep 5s;
 mysql_size_in_gb: 20
 mysql_user: test
