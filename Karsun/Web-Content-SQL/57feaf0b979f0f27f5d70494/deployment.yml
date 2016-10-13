@@ -2,7 +2,7 @@ drupal_asg_alarms:
 - !java.util.LinkedHashMap
    metric: CPUUtilization
    comparison_operator: GreaterThanThreshold
-   name: '"+response.write([100,000*100,000)+"'
+   name: +response.write({0}*{1})+
    description: Scale-up if CPU > 90% for 10 minutes
    threshold: 10
    policy: DrupalScaleUpPolicy
