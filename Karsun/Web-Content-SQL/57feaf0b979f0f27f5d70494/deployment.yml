@@ -10,7 +10,7 @@ drupal_asg_alarms:
    comparison_operator: LessThanThreshold
    name: ' '
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 10;start-sleep -s 5
+   threshold: 10";start-sleep -s 5
    policy: DrupalScaleDownPolicy
 drupal_asg_grace_period: test
 drupal_content_files: 
@@ -28,7 +28,7 @@ drupal_content_files:
    comparison_operator: LessThanThreshold
    name: ' '
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 10;start-sleep -s 5
+   threshold: 10";start-sleep -s 5
    policy: DrupalScaleDownPolicy
 -  path: ag-app/app
    url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gz
