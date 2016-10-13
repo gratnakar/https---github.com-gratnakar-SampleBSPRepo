@@ -4,13 +4,13 @@ drupal_asg_alarms:
    comparison_operator: GreaterThanThreshold
    name: ' '
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 20
+   threshold: 10
    policy: DrupalScaleUpPolicy
 -  metric: CPUUtilization
    comparison_operator: LessThanThreshold
    name: ' '
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 30
+   threshold: 20
    policy: DrupalScaleDownPolicy
 drupal_asg_grace_period: 1
 drupal_content_files: 
@@ -28,7 +28,7 @@ drupal_content_files:
    comparison_operator: LessThanThreshold
    name: ' '
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 30
+   threshold: 20
    policy: DrupalScaleDownPolicy
 -  path: ag-app/app
    url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gz
@@ -38,23 +38,22 @@ drupal_databases:
    url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gz
 -  db_type: default
    sql_url: https://s3.amazonaws.com/s3-helix-ama
-   filename: stack1
+   filename: test
    db_name: dbSolutionMatrix
    drupal_db_name: solution_matrix
-drupal_elb_health_check_target: 10
+drupal_elb_health_check_target: 1
 drupal_elb_ssl_cert_name: drupal-elb-cert
-drupal_instance_size: t2.medium
+drupal_instance_size: t2.micro
 drupal_lb_resource_name: DrupalNS
-drupal_max_instances: 3
-drupal_site_urls: stack2
-drupal_sql_files: sql1
-mem_cache_instance_size: t2.medium
-mysql_backup_retention: 10
-mysql_db_name: test
-mysql_instance_size: m4.large
-mysql_multi_az: true
+drupal_max_instances: 2
+drupal_site_urls: 1te
+drupal_sql_files: testg
+mem_cache_instance_size: t2.small
+mysql_backup_retention: 1
+mysql_db_name: 1
+mysql_instance_size: c4.large
 mysql_size_in_gb: 10
-mysql_user: test
+mysql_user: tst
 api_java_options: '"(-Xmx512m -Xss256k -XX:MaxPermSize=256m -Dapple.awt.UIElement=true)"'
 api_port: 8765
 api_stop_key: fusion
