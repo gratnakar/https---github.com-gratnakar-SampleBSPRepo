@@ -38,19 +38,19 @@ drupal_databases:
    url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gz
 -  db_type: default
    sql_url: https://s3.amazonaws.com/s3-helix-ama
-   filename: test2
+   filename: test3
    db_name: dbSolutionMatrix
    drupal_db_name: solution_matrix
 drupal_elb_health_check_target: 1
 drupal_elb_ssl_cert_name: drupal-elb-cert
-drupal_instance_size: t2.micro
+drupal_instance_size: t2.nano
 drupal_lb_resource_name: DrupalNS
 drupal_max_instances: 1
-drupal_site_urls: test2
-drupal_sql_files: test2
-mem_cache_instance_size: t2.micro
+drupal_site_urls: test3
+drupal_sql_files: test3
+mem_cache_instance_size: t2.nano
 mysql_backup_retention: 1
-mysql_db_name: test2
+mysql_db_name: test3
 mysql_instance_size: t2.nano
 mysql_size_in_gb: 10
-mysql_user: test2
+mysql_user: test3
