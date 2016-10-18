@@ -10,7 +10,7 @@ apache_asg_alarms:
    description: Scale-down if CPU <70% for 10 minutes
    threshold: 10
    policy: ApacheScaleDownPolicy
-apache_asg_grace_period: 10
+apache_asg_grace_period: test
 apache_elb_health_check_target: test
 apache_elb_ssl_cert_name: test
 apache_instance_size: t2.nano
@@ -33,5 +33,5 @@ shib_entityid: https://gsar-dev.fas.gsa.gov/shibboleth
 shib_service_location: https://secureauth.gsa.gov/SecureAuth24/
 shib_spcert: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/sp-key.pem
 shib_spkey: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/sp-cert.pem
-mongo_instance_size: t2.nano
+mongo_instance_size: m3.medium
 mongod_port: 27017
