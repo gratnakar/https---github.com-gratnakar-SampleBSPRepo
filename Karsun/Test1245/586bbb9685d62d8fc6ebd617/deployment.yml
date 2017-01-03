@@ -1,0 +1,7 @@
+apache_instance_size: c4.2xlarge
+apache_max_instances: 6
+apache_min_instances: 7
+jboss_instance_size: c4.8xlarge
+jboss_max_instances: 10
+jboss_min_instances: 8
+mongo_instance_size: c4.4xlarge
