@@ -8,21 +8,21 @@ apache_asg_alarms:
 -  metric: CPUUtilization
    comparison_operator: LessThanThreshold
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 30
+   threshold: 50
    policy: ApacheScaleDownPolicy
 apache_asg_grace_period: 2
-apache_elb_health_check_target: 2
+apache_elb_health_check_target: as
 apache_elb_ssl_cert_name: ss
 apache_instance_size: c4.4xlarge
 apache_lb_resource_name: ApacheNS
-apache_max_instances: 3
-apache_min_instances: 8
+apache_max_instances: 7
+apache_min_instances: 3
 apache_vhosts: 
 - !java.util.LinkedHashMap
    metric: CPUUtilization
    comparison_operator: LessThanThreshold
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 30
+   threshold: 50
    policy: ApacheScaleDownPolicy
 -  documentroot: '"/var/www/html"'
    metric: CPUUtilization
@@ -30,10 +30,10 @@ apache_vhosts:
    comparison_operator: GreaterThanThreshold
    name: ' '
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 50
+   threshold: 20
    shib_locationmatch: /TDR/internaluser*
    policy: JBossScaleUpPolicy
-shib_X509Certificate: we
+shib_X509Certificate: as
 shib_atrrib: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/attribute-map.xml
 shib_entityid: https://gsar-dev.fas.gsa.gov/shibboleth
 shib_service_location: https://secureauth.gsa.gov/SecureAuth24/
@@ -48,7 +48,7 @@ jboss_asg_alarms:
    comparison_operator: GreaterThanThreshold
    name: ' '
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 50
+   threshold: 20
    shib_locationmatch: /TDR/internaluser*
    policy: JBossScaleUpPolicy
 -  metric: CPUUtilization
@@ -59,13 +59,13 @@ jboss_asg_alarms:
    policy: JBossScaleDownPolicy
 jboss_asg_grace_period: 2
 jboss_default_log_level: INFO
-jboss_elb_health_check_target: sw
-jboss_elb_ssl_cert_name: s
+jboss_elb_health_check_target: as
+jboss_elb_ssl_cert_name: sd
 jboss_instance_size: t2.small
-jboss_lb_resource_name: s
+jboss_lb_resource_name: as
 jboss_max_instances: 3
-jboss_max_log_index: 2
-jboss_max_log_size: s
+jboss_max_log_index: 12
+jboss_max_log_size: 12
 jboss_min_instances: 4
 jboss_target_path: /Environment/
 mongo_instance_size: c4.xlarge
