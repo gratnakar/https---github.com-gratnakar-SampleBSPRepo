@@ -1,7 +1,72 @@
-apache_instance_size: c4.2xlarge
-apache_max_instances: 7
-apache_min_instances: 7
-jboss_instance_size: t2.micro
-jboss_max_instances: 2
-jboss_min_instances: 2
-mongo_instance_size: c4.2xlarge
+apache_asg_alarms: 
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: GreaterThanThreshold
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 20
+   policy: ApacheScaleUpPolicy
+-  metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 90
+   policy: ApacheScaleDownPolicy
+apache_asg_grace_period: 2
+apache_elb_health_check_target: 2
+apache_elb_ssl_cert_name: 2
+apache_instance_size: c4.4xlarge
+apache_lb_resource_name: ApacheNS
+apache_max_instances: 8
+apache_min_instances: 8
+apache_vhosts: 
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 90
+   policy: ApacheScaleDownPolicy
+-  documentroot: '"/var/www/html"'
+   metric: CPUUtilization
+   servername: '"local.dev"'
+   comparison_operator: GreaterThanThreshold
+   name: ' '
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 20
+   shib_locationmatch: /TDR/internaluser*
+   policy: JBossScaleUpPolicy
+shib_X509Certificate: aaa
+shib_atrrib: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/attribute-map.xml
+shib_entityid: https://gsar-dev.fas.gsa.gov/shibboleth
+shib_service_location: https://secureauth.gsa.gov/SecureAuth24/
+shib_spcert: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/sp-key.pem
+shib_spkey: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/sp-cert.pem
+cust_urls: '["https://s3.amazonaws.com/s3-helix-ama/Environment.war"]'
+jboss_asg_alarms: 
+- !java.util.LinkedHashMap
+   documentroot: '"/var/www/html"'
+   metric: CPUUtilization
+   servername: '"local.dev"'
+   comparison_operator: GreaterThanThreshold
+   name: ' '
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 20
+   shib_locationmatch: /TDR/internaluser*
+   policy: JBossScaleUpPolicy
+-  metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   name: ' '
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 10
+   policy: JBossScaleDownPolicy
+jboss_asg_grace_period: 2
+jboss_default_log_level: INFO
+jboss_elb_health_check_target: 2
+jboss_elb_ssl_cert_name: 2
+jboss_instance_size: c4.xlarge
+jboss_lb_resource_name: aa
+jboss_max_instances: 8
+jboss_max_log_index: 1
+jboss_max_log_size: 2
+jboss_min_instances: 8
+jboss_target_path: /Environment/
+mongo_instance_size: c4.large
+mongod_port: 27017
