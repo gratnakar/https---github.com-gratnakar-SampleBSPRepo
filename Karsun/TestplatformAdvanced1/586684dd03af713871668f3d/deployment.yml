@@ -57,7 +57,7 @@ jboss_asg_alarms:
    description: Scale-down if CPU <70% for 10 minutes
    threshold: 10
    policy: JBossScaleDownPolicy
-jboss_asg_grace_period: 1
+jboss_asg_grace_period: 12
 jboss_default_log_level: INFO
 jboss_elb_health_check_target: 1
 jboss_elb_ssl_cert_name: 1
