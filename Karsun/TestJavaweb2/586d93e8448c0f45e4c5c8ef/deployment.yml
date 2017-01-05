@@ -3,26 +3,26 @@ apache_asg_alarms:
    metric: CPUUtilization
    comparison_operator: GreaterThanThreshold
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 10
+   threshold: 40
    policy: ApacheScaleUpPolicy
 -  metric: CPUUtilization
    comparison_operator: LessThanThreshold
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 10
+   threshold: 30
    policy: ApacheScaleDownPolicy
 apache_asg_grace_period: 2
-apache_elb_health_check_target: 2
-apache_elb_ssl_cert_name: 2
+apache_elb_health_check_target: as
+apache_elb_ssl_cert_name: ss
 apache_instance_size: c4.xlarge
 apache_lb_resource_name: ApacheNS
-apache_max_instances: 7
-apache_min_instances: 5
+apache_max_instances: 5
+apache_min_instances: 2
 apache_vhosts: 
 - !java.util.LinkedHashMap
    metric: CPUUtilization
    comparison_operator: LessThanThreshold
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 10
+   threshold: 30
    policy: ApacheScaleDownPolicy
 -  documentroot: '"/var/www/html"'
    metric: CPUUtilization
@@ -30,7 +30,7 @@ apache_vhosts:
    comparison_operator: GreaterThanThreshold
    name: ' '
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 60
+   threshold: 20
    shib_locationmatch: /TDR/internaluser*
    policy: JBossScaleUpPolicy
 shib_X509Certificate: 2
@@ -48,25 +48,25 @@ jboss_asg_alarms:
    comparison_operator: GreaterThanThreshold
    name: ' '
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 60
+   threshold: 20
    shib_locationmatch: /TDR/internaluser*
    policy: JBossScaleUpPolicy
 -  metric: CPUUtilization
    comparison_operator: LessThanThreshold
    name: ' '
    description: Scale-down if CPU <70% for 10 minutes
-   threshold: 20
+   threshold: 50
    policy: JBossScaleDownPolicy
 jboss_asg_grace_period: 2
 jboss_default_log_level: INFO
-jboss_elb_health_check_target: 2
-jboss_elb_ssl_cert_name: 2
-jboss_instance_size: c4.2xlarge
-jboss_lb_resource_name: s
-jboss_max_instances: 6
+jboss_elb_health_check_target: sw
+jboss_elb_ssl_cert_name: s
+jboss_instance_size: c4.large
+jboss_lb_resource_name: aa
+jboss_max_instances: 3
 jboss_max_log_index: 5
 jboss_max_log_size: 1GB
-jboss_min_instances: 2
+jboss_min_instances: 3
 jboss_target_path: /Environment/
-mongo_instance_size: c4.4xlarge
+mongo_instance_size: c4.2xlarge
 mongod_port: 27017
