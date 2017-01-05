@@ -3,7 +3,7 @@ apache_asg_alarms:
    metric: CPUUtilization
    comparison_operator: GreaterThanThreshold
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 60
+   threshold: 70
    policy: ApacheScaleUpPolicy
 -  metric: CPUUtilization
    comparison_operator: LessThanThreshold
@@ -13,9 +13,9 @@ apache_asg_alarms:
 apache_asg_grace_period: 2
 apache_elb_health_check_target: 2
 apache_elb_ssl_cert_name: 2
-apache_instance_size: c4.xlarge
+apache_instance_size: c4.2xlarge
 apache_lb_resource_name: ApacheNS
-apache_max_instances: 7
+apache_max_instances: 6
 apache_min_instances: 2
 apache_vhosts: 
 - !java.util.LinkedHashMap
@@ -30,7 +30,7 @@ apache_vhosts:
    comparison_operator: GreaterThanThreshold
    name: ' '
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 20
+   threshold: 70
    shib_locationmatch: /TDR/internaluser*
    policy: JBossScaleUpPolicy
 shib_X509Certificate: 2
@@ -48,7 +48,7 @@ jboss_asg_alarms:
    comparison_operator: GreaterThanThreshold
    name: ' '
    description: Scale-up if CPU > 90% for 10 minutes
-   threshold: 20
+   threshold: 70
    shib_locationmatch: /TDR/internaluser*
    policy: JBossScaleUpPolicy
 -  metric: CPUUtilization
@@ -61,12 +61,12 @@ jboss_asg_grace_period: 2
 jboss_default_log_level: INFO
 jboss_elb_health_check_target: 2
 jboss_elb_ssl_cert_name: 2
-jboss_instance_size: c4.2xlarge
-jboss_lb_resource_name: as
-jboss_max_instances: 6
+jboss_instance_size: c4.xlarge
+jboss_lb_resource_name: aa
+jboss_max_instances: 8
 jboss_max_log_index: 12
-jboss_max_log_size: 2
-jboss_min_instances: 2
+jboss_max_log_size: 12
+jboss_min_instances: 8
 jboss_target_path: /Environment/
-mongo_instance_size: c4.2xlarge
+mongo_instance_size: m3.2xlarge
 mongod_port: 27017
