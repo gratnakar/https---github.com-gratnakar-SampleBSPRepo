@@ -16,7 +16,7 @@ apache_elb_ssl_cert_name: cc
 apache_instance_size: c4.4xlarge
 apache_lb_resource_name: ApacheNS
 apache_max_instances: 1
-apache_min_instances: 1
+apache_min_instances: 3
 apache_vhosts: 
 - !java.util.LinkedHashMap
    metric: CPUUtilization
@@ -27,7 +27,7 @@ apache_vhosts:
 -  documentroot: '"/var/www/html"'
    servername: '"local.dev"'
    shib_locationmatch: /TDR/internaluser*
-shib_X509Certificate: cc
+shib_X509Certificate: dd
 shib_atrrib: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/attribute-map.xml
 shib_entityid: https://gsar-dev.fas.gsa.gov/shibboleth
 shib_service_location: https://secureauth.gsa.gov/SecureAuth24/
