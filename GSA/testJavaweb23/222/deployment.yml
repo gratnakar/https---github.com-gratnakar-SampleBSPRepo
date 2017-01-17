@@ -1,0 +1,87 @@
+drupal_asg_alarms: 
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: GreaterThanThreshold
+   name: DrupalHighCPU
+   description: Scale-up if CPU > 90% for 10 minutes
+   threshold: 90
+   policy: DrupalScaleUpPolicy
+-  metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   name: DrupalLowCPU
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 70
+   policy: DrupalScaleDownPolicy
+drupal_asg_grace_period: 2
+drupal_content_files: 
+- !java.util.LinkedHashMap
+   path: sites/all/themes
+   url: https://s3.amazonaws.com/s3-helix-ama/themes.tar.gz
+- !java.util.LinkedHashMap
+   path: sites/all/modules
+   url: https://s3.amazonaws.com/s3-helix-ama/modules.tar.gz
+- !java.util.LinkedHashMap
+   path: sites/all/deploy
+   url: https://s3.amazonaws.com/s3-helix-ama/deploy.tar.gz
+- !java.util.LinkedHashMap
+   metric: CPUUtilization
+   comparison_operator: LessThanThreshold
+   name: DrupalLowCPU
+   description: Scale-down if CPU <70% for 10 minutes
+   threshold: 70
+   policy: DrupalScaleDownPolicy
+-  path: ag-app/app
+   url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gz
+drupal_databases: 
+- !java.util.LinkedHashMap
+   path: ag-app/app
+   url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gz
+-  db_type: default
+   sql_url: https://s3.amazonaws.com/s3-helix-ama
+   filename: ass
+   db_name: aaaa
+   drupal_db_name: solution_matrix
+drupal_elb_health_check_target: 2
+drupal_elb_ssl_cert_name: drupal-elb-cert
+drupal_instance_size: c4.2xlarge
+drupal_lb_resource_name: DrupalNS
+drupal_max_instances: 8
+drupal_site_urls: as
+drupal_sql_files: '[]'
+mem_cache_instance_size: c4.4xlarge
+mysql_backup_retention: as
+mysql_db_name: ass
+mysql_instance_size: t2.small
+mysql_size_in_gb: 2g
+mysql_user: sad
+api_java_options: '"(-Xmx512m -Xss256k -XX:MaxPermSize=256m -Dapple.awt.UIElement=true)"'
+api_port: 8765
+api_stop_key: fusion
+api_stop_port: 7765
+connectors_java_options: '"(-Xmx512m -Xss256k -XX:MaxPermSize=256m -Dapple.awt.UIElement=true)"'
+connectors_port: 8984
+connectors_stop_key: fusion
+connectors_stop_port: 7984
+lsolr_src_dir: /opt/lucidworks
+lucidworks_group: lucidworks
+lucidworks_home_dir: /opt/lucidworks
+lucidworks_indexes_dir: /indexes
+lucidworks_user: lucidworks
+solr_instance_size: 3
+solr_java_options: '"(-Xmx512m -Xss256k -XX:MaxPermSize=256m -Dapple.awt.UIElement=true)"'
+solr_port: 8983
+solr_stop_key: fusion
+solr_stop_port: 7983
+spark_job_server_port: 8768
+spark_master_java_options: '"(-Xmx512m -Xss256k -XX:MaxPermSize=256m -Dapple.awt.UIElement=true)"'
+spark_master_port: 8766
+spark_master_ui_port: 8767
+spark_worker_java_options: '"(-Xmx512m -Xss256k -XX:MaxPermSize=256m -Dapple.awt.UIElement=true)"'
+spark_worker_port: 8769
+spark_worker_ui_port: 8770
+ui_java_options: '"(-Xmx512m -Xss256k -XX:MaxPermSize=256m -Dapple.awt.UIElement=true)"'
+ui_port: 8764
+ui_stop_key: fusion
+ui_stop_port: 7764
+zookeeper_home_dir: /opt/zookeeper
+zookeeper_instance_size: 3
