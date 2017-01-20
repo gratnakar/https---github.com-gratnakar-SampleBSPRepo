@@ -1,0 +1,6 @@
+mem_cache_instance_size: t2.nano
+mysql_backup_retention: daily
+mysql_db_name: mysqldbname011920171957
+mysql_instance_size: t2.nano
+mysql_size_in_gb: 2
+mysql_user: mysql011920170825
