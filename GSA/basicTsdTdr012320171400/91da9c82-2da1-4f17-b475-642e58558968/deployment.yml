@@ -1,0 +1,27 @@
+cust_urls: '["https://s3.amazonaws.com/s3-helix-ama/Environment.war"]'
+jboss_asg_alarms: 
+-   metric: CPUUtilization
+    comparison_operator: GreaterThanThreshold
+    name: JBossHighCPU
+    description: Scale-up if CPU > 90% for 10 minutes
+    threshold: 90
+    policy: JBossScaleUpPolicy
+-   metric: CPUUtilization
+    comparison_operator: LessThanThreshold
+    name: JBossLowCPU
+    description: Scale-down if CPU <70% for 10 minutes
+    threshold: 70
+    policy: JBossScaleDownPolicy
+jboss_asg_grace_period: 60
+jboss_default_log_level: INFO
+jboss_elb_health_check_target: healthcheck
+jboss_elb_ssl_cert_name: sslCertName
+jboss_instance_size: t2.nano
+jboss_lb_resource_name: lsResourceName
+jboss_max_instances: 2
+jboss_max_log_index: 5
+jboss_max_log_size: 1GB
+jboss_min_instances: 1
+jboss_target_path: /Environment/
+mongo_instance_size: t2.nano
+mongod_port: 27017
