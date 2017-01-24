@@ -1,0 +1,59 @@
+apache_asg_alarms: 
+-   metric: CPUUtilization
+    comparison_operator: GreaterThanThreshold
+    name: ApacheHighCPU
+    description: Scale-up if CPU > 90% for 10 minutes
+    threshold: 90
+    policy: ApacheScaleUpPolicy
+-   metric: CPUUtilization
+    comparison_operator: LessThanThreshold
+    name: ApacheLowCPU
+    description: Scale-down if CPU <70% for 10 minutes
+    threshold: 70
+    policy: ApacheScaleDownPolicy
+apache_asg_grace_period: 1200
+apache_elb_health_check_target: tcp:443
+apache_elb_ssl_cert_name: Apache-elb-cert
+apache_instance_size: t2.large
+apache_lb_resource_name: ApacheNS
+apache_max_instances: 2
+apache_min_instances: 1
+apache_vhosts: 
+-   documentroot: /var/www/html
+    servername: local.dev
+    content_files: 
+      - http://artifactory.helix.gsa.gov/artifactory/ART-010-GP-TDR-Generic/development/2.0/index.html.tar.gz
+    shib_locationmatch: /TDR/internaluser*
+shib_X509Certificate: MIIExjCCA66gAwIBAgIKQdzORQAAAAAAcTANBgkqhkiG9w0BAQUFADCBxzELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExHzAdBgNVBAoTFlNlY3VyZUF1dGggQ29ycG9yYXRpb24xOzA5BgNVBAsTMihjKSAyMDEyIFNlY3VyZUF1dGggQ29ycCAtIEZvciBhdXRob3JpemVkIHVzZSBvbmx5MR0wGwYDVQQLExRDZXJ0aWZpY2F0ZSBTZXJ2aWNlczEmMCQGA1UEAxMdU2VjdXJlQXV0aCBJbnRlcm1lZGlhdGUgQ0EgMUEwHhcNMTIwMzIyMDA1MzMwWhcNMjIwMzIyMDA1MzMwWjCBhDELMAkGA1UEBhMCVVMxDjAMBgNVBAgTBVRleGFzMRMwEQYDVQQHEwpGb3J0IFdvcnRoMSgwJgYDVQQKEx9HZW5lcmFsIFNlcnZpY2VzIEFkbWluaXN0cmF0aW9uMQswCQYDVQQLEwJJVDEZMBcGA1UEAxMQRTA3UjdTLVNFQ0FVVEgwMzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAvftM
+shib_atrrib: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/attribute-map.xml
+shib_entityid: https://gsar-dev.fas.gsa.gov/shibboleth
+shib_service_location: https://secureauth.gsa.gov/SecureAuth24/
+shib_spcert: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/sp-key.pem
+shib_spkey: http://artifactory.helix.gsa.gov/artifactory/GS-BSP-Generic/Test/Client/sp-cert.pem
+cust_urls: '["https://s3.amazonaws.com/s3-helix-ama/Environment.war"]'
+jboss_asg_alarms: 
+-   metric: CPUUtilization
+    comparison_operator: GreaterThanThreshold
+    name: JBossHighCPU
+    description: Scale-up if CPU > 90% for 10 minutes
+    threshold: 90
+    policy: JBossScaleUpPolicy
+-   metric: CPUUtilization
+    comparison_operator: LessThanThreshold
+    name: JBossLowCPU
+    description: Scale-down if CPU <70% for 10 minutes
+    threshold: 70
+    policy: JBossScaleDownPolicy
+jboss_asg_grace_period: 1200
+jboss_default_log_level: INFO
+jboss_elb_health_check_target: TCP:8443
+jboss_elb_ssl_cert_name: JBoss-elb-cert
+jboss_instance_size: t2.medium
+jboss_lb_resource_name: JbossNS
+jboss_max_instances: 4
+jboss_max_log_index: 5
+jboss_max_log_size: 1GB
+jboss_min_instances: 3
+jboss_target_path: /Environment/
+mongo_instance_size: g2.8xlarge
+mongod_port: 27017
