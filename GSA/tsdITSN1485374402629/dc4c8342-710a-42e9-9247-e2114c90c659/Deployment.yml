@@ -1,0 +1,50 @@
+drupal_asg_alarms: 
+-   metric: CPUUtilization
+    comparison_operator: GreaterThanThreshold
+    name: DrupalHighCPU
+    description: Scale-up if CPU > 90% for 10 minutes
+    threshold: 90
+    policy: DrupalScaleUpPolicy
+-   metric: CPUUtilization
+    comparison_operator: LessThanThreshold
+    name: DrupalLowCPU
+    description: Scale-down if CPU <70% for 10 minutes
+    threshold: 70
+    policy: DrupalScaleDownPolicy
+drupal_asg_grace_period: 1200
+drupal_content_files: 
+-   path: sites/all/themes
+    url: https://s3.amazonaws.com/s3-helix-ama/themes.tar.gz
+-   path: sites/all/modules
+    url: https://s3.amazonaws.com/s3-helix-ama/modules.tar.gz
+-   path: sites/all/deploy
+    url: https://s3.amazonaws.com/s3-helix-ama/deploy.tar.gz
+-   metric: CPUUtilization
+    comparison_operator: LessThanThreshold
+    name: DrupalLowCPU
+    description: Scale-down if CPU <70% for 10 minutes
+    threshold: 70
+    policy: DrupalScaleDownPolicy
+-   path: ag-app/app
+    url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gz
+drupal_databases: 
+-   path: ag-app/app
+    url: https://s3.amazonaws.com/s3-helix-ama/ui.tar.gz
+-   db_type: default
+    sql_url: https://s3.amazonaws.com/s3-helix-ama
+    filename: fileName0fileName1
+    db_name: drupalDB01485374404367drupalDB11485374404834
+    drupal_db_name: solution_matrix
+drupal_elb_health_check_target: healtcheck
+drupal_elb_ssl_cert_name: drupal-elb-cert
+drupal_instance_size: t2.nano
+drupal_lb_resource_name: DrupalNS
+drupal_max_instances: 3
+drupal_site_urls: drupaltestsite.com
+drupal_sql_files: '[]'
+mem_cache_instance_size: t2.nano
+mysql_backup_retention: daily
+mysql_db_name: mySqlDB1485374406177
+mysql_instance_size: m4.large
+mysql_size_in_gb: 3
+mysql_user: mySQLusername
